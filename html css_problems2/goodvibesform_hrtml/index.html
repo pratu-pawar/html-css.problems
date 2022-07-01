@@ -1,86 +1,150 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Good Vibes Form </title>
+    <title>Good Vibes Form</title>
     <link rel="stylesheet" href="index.css" />
-    
   </head>
 
   <body>
     <h1 id="first headimg">Good Vibes Form</h1>
-    <form id="form"> 
-      <h3 >Tell us something that happen to you today</h3>
-      <table id="table"> 
-        <tr> 
+    <form id="form">
+      <h3>Tell us something that happen to you today</h3>
+      <table id="table">
+        <tr>
           <td>Name</td>
-          <td><input type="text" placeholder="enter your name" name="name" id="text1"></td>
-           </tr>
+          <td>
+            <input
+              type="text"
+              placeholder="enter your name"
+              name="name"
+              id="text1"
+            />
+          </td>
+        </tr>
 
-           <tr> 
-            <td>Email</td>
-            <td><input type="email" placeholder="enter your email" name="email" id="text2"></td>
-           </tr>
+        <tr>
+          <td>Email</td>
+          <td>
+            <input
+              type="email"
+              placeholder="enter your email"
+              name="email"
+              id="text2"
+            />
+          </td>
+        </tr>
 
-             <tr> 
-              <td>on a scale of 1 to 10, how good was it?</td>
-              <td><input type="number" placeholder="enter your number between 1 to 10 " name="number"></td>
-             </tr>
+        <tr>
+          <td>on a scale of 1 to 10, how good was it?</td>
+          <td>
+            <input
+              type="number"
+              placeholder="enter your number between 1 to 10 "
+              name="number"
+              id="number"
+            />
+          </td>
+        </tr>
 
-             <tr> 
-              <td>Where did is happen?</td>
-              <td><select name="location">
-                <option>At home</option> 
-                <option>At university</option>
-                <option>At any other location</option>  
-              </select></td>
-             </tr>
+        <tr>
+          <td>Where did is happen?</td>
+          <td>
+            <select name="location" id="location">
+              <option>At home</option>
+              <option>At university</option>
+              <option>At any other location</option>
+            </select>
+          </td>
+        </tr>
 
-             <tr> 
-              <td>At what time of day did it happen?</td>
-                <td><input type="radio" name="time" id="first">Morning <br>
-                <input type="radio" name="time" id="second">Afternoon<br>
-                <input type="radio" name="time" id="third">Evening</td>
+        <tr>
+          <td>At what time of day did it happen?</td>
+          <td id="time">
+            <input type="radio" name="time" id="first" value="Morning" />Morning <br />
+            <input type="radio" name="time" id="second" value="Afternoon" />Afternoon<br />
+            <input type="radio" name="time" id="third" value="Evening" />Evening
+          </td>
+        </tr>
+        <tr>
+          <td>What emotion did you expereince?</td>
+          <td id="expereince">
+            <input type="checkbox" name="c1" id="c1" value="Excited" />Excited<br />
+            <input type="checkbox" name="c2" id="c2" value="Humble" />Humble<br />
+            <input type="checkbox" name="c2" id="c3" value="Elated"/>Elated<br />
+            <input type="checkbox" name="c2" id="c4" value="Enthusiastic" />Enthusiastic<br />
+          </td>
+        </tr>
 
-               </tr>
-               <tr> 
-                <td>What emotion did you expereince? </td>
-                <td> 
-                     <input type="checkbox" name="c1">Excited<br>
-                     <input type="checkbox" name="c2">Humble<br>
-                     <input type="checkbox" name="c2">Elated<br>
-                     <input type="checkbox" name="c2">Enthusiastic<br>
-
-                </td> 
-               </tr>
-
-               <tr> 
+        <!-- <tr> 
                 <td>Please describe your Positive expereince</td>
                 <td> 
-                  <textarea rows="6" cols="40" placeholder="emter your expereince heare" name="expereince">
+                  <textarea id="textarea" rows="6" cols="40" placeholder="enter your experience heare">
                 </td>
-               </tr>
-              
+               </tr> -->
 
+        <tr>
+          <button type="submit" name="submit">submit</button>
+        </tr>
       </table>
-      <button type="submit" name="submiteButton">submit</button>
-
-    
-
     </form>
-    <p align="center id result"></p>
-    <script> 
-    var form = document.getElementById("form");
-    form.addEventListener("submite", function(event){ 
-      event.preventDefault()
-      const result = document.getElementById("result")
-      result. textContent = 
-      document.getElementById("text1").value +" " +
-      document.getElementById("text2"). value
-      console.log(result.innerHTML)
-    })
+    <p id="result"></p>
+    <script>
+      var form = document.getElementById("form");
+      form.addEventListener("submit", function (event) {
+        const result = document.getElementById("result");
+        const Name = document.getElementById("text1");
+        const Email = document.getElementById("text2");
+        const number = document.getElementById("number");
+        const location = document.getElementById("location");
+        let timeHappen;
+        if (document.getElementById("first").checked) {
+          timeHappen = document.getElementById("first").value;
+        } else if (document.getElementById("second").checked) {
+          timeHappen = document.getElementById("second").value;
+        } else if (document.getElementById("third").checked) {
+          timeHappen = document.getElementById("third").value;
+        }
+
+        let expereince;
+        if (document.getElementById("c1").checked) {
+          expereince = document.getElementById("c1").value;
+        } else if (document.getElementById("c2").checked) {
+          expereince = document.getElementById("c2").value;
+        } else if (document.getElementById("c3").checked) {
+          expereince = document.getElementById("c3").value;
+        } else if (document.getElementById("c4").checked) {
+          expereince = document.getElementById("c4").value;
+        }
+
+        result.innerHTML =
+          "Name is" +
+          " " +
+          Name.value +
+          ",  " +
+          "Email is" +
+          " " +
+          Email.value +
+          ",  " +
+          "I feel" +
+          " " +
+          number.value +
+          " " +
+          "out of 10" +
+          ",  " +
+          "It happened" +
+          " " +
+          location.value +
+          ", " +
+          "It happened in the" + " " +
+          timeHappen +
+          ", " +
+          "I experienced" + " " +
+          expereince;
+        event.preventDefault();
+      });
     </script>
   </body>
 </html>

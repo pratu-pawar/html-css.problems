@@ -43,6 +43,7 @@ button{
     margin-left: 340px;
     margin-top: 25px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 input, select{ 
