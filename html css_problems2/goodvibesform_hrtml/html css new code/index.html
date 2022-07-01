@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <title>Print form</title>
+  <body>
+    <form id="myfrm">
+      <fieldset>
+        <legend>Personal information:</legend>
+        First name:<br />
+        <input type="text" name="firstname" id="first_name" />
+        <br />
+        Last name:<br />
+        <input type="text" name="lastname" id="last_name" />
+        <br /><br />
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <p align="center" id="result"></p>
+    <script>
+      let form = document.getElementById("myfrm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const result = document.getElementById("result");
+        result.textContent =
+          document.getElementById("first_name").value +
+          " " +
+          document.getElementById("last_name").value;
+        console.log(result.innerHTML);
+      });
+    </script>
+  </body>
+</html>
