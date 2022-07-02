@@ -62,19 +62,17 @@
               </tr>
 
         </table>
-
-        <table border="4" id="show"> 
-            <thead> 
-                <tr> 
-                    <th>first name</th>
-                    <th>last name</th>
-                    <th>Age</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-        </table>
     </form>
-
+    <table  id="show"> 
+        <thead> 
+            <tr> 
+                <th>first name</th>
+                <th>last name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+    </table>
     <script>
         var list1 = [];
         var list2 = [];
@@ -93,16 +91,18 @@
             list3[x] = document.getElementById("number").value;
             list4[x] = document.getElementById("text3").value;
 
-            var cel1 = NewRow.insertcell(0);
-            var cel2 = NewRow.insertcell(1);
-            var cel3 = NewRow.insertcell(2);
-            var cel4 = NewRow.insertcell(3);
+            //Spelling mistake, you wrote "insertcell" but it is "insertCell"
+            var cel1 = NewRow.insertCell(0);
+            var cel2 = NewRow.insertCell(1);
+            var cel3 = NewRow.insertCell(2);
+            var cel4 = NewRow.insertCell(3);
 
-            cell.innerHTML = list1[x];
+            // Here also you have declared variable as "cel1" but you wrote "cell"
+            cel1.innerHTML = list1[x];
             cel2.innerHTML = list2[x];
             cel3.innerHTML = list3[x];
             cel4.innerHTML = list4[x];
-            
+            console.log(list1[x])
             n++;
             x++;
          }
