@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regitration Form</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  </head>
+  <body>
+    <h1 id="first heading">Regitration Form</h1> 
+    <form id="form"> 
+        <table id="table"> 
+            <tr> 
+                <td> First name</td>
+                <td> 
+                  <input type="text"
+                  placeholder="Enter your first name"
+                  name=" first name"
+                  id="text1">
+                </td>
+            </tr>
+            
+            <tr>  
+                <td> last name</td>
+                <td> 
+                    <input type="text"
+                    placeholder=" Enter your last name"
+                    name="last name"
+                    id="text2">
+                </td>
+            </tr>
+
+            <tr> 
+                <td>Age</td>
+                <td> 
+                    <input type="number"
+                    placeholder="Enter your Age"
+                    name="Age"
+                    id="number">
+                </td>
+            </tr>
+
+            <tr> 
+                <td>Email</td>
+                <td> 
+                    <input type="email"
+                    placeholder="Enter your Email"
+                    name="Email"
+                    id="text3">
+                </td>
+            </tr>
+
+            <tr id="btn">
+                <td colspan="2"><input type="button"
+                    name="button" 
+                    id="btn"
+                    value="Add"
+                    onclick="AddRow()">
+                </td>
+              </tr>
+
+        </table>
+
+        <table border="4" id="show"> 
+            <thead> 
+                <tr> 
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+        </table>
+    </form>
+
+    <script>
+        var list1 = [];
+        var list2 = [];
+        var list3 = [];
+        var list4 = [];
+
+        var n = 1;
+        var x = 0;
+
+        function AddRow(){ 
+            var AddRow = document.getElementById('show');
+            var NewRow = AddRow.insertRow(n);
+
+            list1[x] = document.getElementById("text1").value;
+            list2[x] = document.getElementById("text2").value;
+            list3[x] = document.getElementById("number").value;
+            list4[x] = document.getElementById("text3").value;
+
+            var cel1 = NewRow.insertcell(0);
+            var cel2 = NewRow.insertcell(1);
+            var cel3 = NewRow.insertcell(2);
+            var cel4 = NewRow.insertcell(3);
+
+            cell.innerHTML = list1[x];
+            cel2.innerHTML = list2[x];
+            cel3.innerHTML = list3[x];
+            cel4.innerHTML = list4[x];
+            
+            n++;
+            x++;
+         }
+</script>
+  </body>
+</html>
